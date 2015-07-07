@@ -1,0 +1,19 @@
+connection: &connection
+  adapter: postgresql
+  encoding: unicode
+  host:     localhost
+  pool: 5
+  username: postgres
+  password: password
+
+development:
+  <<: *connection
+  database: shop
+
+test: &test
+  <<: *connection
+  database: shop_test
+
+production:
+  <<: *connection
+  database: shop_production

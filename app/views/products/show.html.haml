@@ -1,0 +1,40 @@
+= tinymce_assets
+%p#notice= notice
+%p#error= flash[:error]
+
+%h1 Product
+#productlist
+  %table.table.table-bordered
+    %tr
+      %th#tabletitle Title
+      %td= product.title
+    %tr
+      %th#tabletitle Description
+      %td= product.description.html_safe
+    %tr
+      %th#tabletitle Price
+      %td= product.price
+    %tr
+      %th#tabletitle Category
+      %td= product.category.name
+%br
+-if user_signed_in?
+  #flip
+    %h3 Add review
+  %br
+  #panel
+    = render 'reviews/form'
+-else
+
+%br
+
+-if product.reviews.empty?
+  .panel-body#usercontent
+    Product hasn't got any reviews. Add new one!
+-else
+  = render reviews
+
+%br
+= link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-info'
+\|
+= link_to 'Back', category_products_path, class: 'btn btn-primary'

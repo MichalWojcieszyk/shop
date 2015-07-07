@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%h1 
+  = category.name
+%br
+-if user_signed_in?
+  #flip 
+    %h3 Click to show new product form
+  %br
+  #panel
+    = render 'products/form'
+-else
+
+%br
+#productlist
+  -if category.products.empty?
+    #empty No products in this category. Add new one!
+  -else 
+    %table.table.table-bordered
+      %tr
+        %th#th Product
+        %th#th Price
+        %th#th Description
+    
+
+      - category.products.each do |product|
+        %tr
+          %td#title= link_to product.title.capitalize, category_product_url(category, product)
+          %td= product.price
+          %td#description= product.description.html_safe
+
+
+%br
+-if is_admin?
+  = link_to 'Edit', edit_category_path(category), class: 'btn btn-info'
+  \|
+  = link_to 'Back', categories_path, class: 'btn btn-warning'
+-else 
+  = link_to 'Back', categories_path, class: 'btn btn-warning'

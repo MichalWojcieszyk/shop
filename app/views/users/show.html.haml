@@ -1,0 +1,43 @@
+-#= binding.pry
+%h1 Your profile
+  
+.panel.panel-default
+  .panel.panel-primary#threviews
+    First name:
+  .panel-body#userpadding#usercontent
+    = user.firstname
+    
+.panel.panel-default
+  .panel.panel-primary#threviews
+    Last name:
+  .panel-body#usercontent
+    = user.lastname
+    
+.panel.panel-default
+  .panel.panel-primary#threviews
+    First name:
+  .panel-body#usercontent
+    = user.email
+  
+.panel.panel-default
+  .panel.panel-primary#threviews
+    Account created at:
+  .panel-body#usercontent
+    = user.created_at.strftime('%d-%m-%Y %H:%M:%S')
+%br
+-if user.reviews.empty?
+  #empty You haven't got any reviews
+-else
+  %h2#center Your last 5 reviews
+  %br
+  %table.table.table-stripted
+    %tr
+      %th#threviews Review content:
+      %th#threviews Review rating:
+      %th#threviews Created at:
+    - reviews.last(5).each do |review|
+      %tr
+        %td= review.content.html_safe
+        %td= review.rating
+        %td= review.created_at.strftime('%d-%m-%Y')
+  

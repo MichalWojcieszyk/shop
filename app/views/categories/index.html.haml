@@ -1,0 +1,23 @@
+%h1 Categories
+
+%br
+  -if is_admin?
+    = link_to 'Add new Category', new_category_path, class: 'btn btn-primary' 
+  -else
+%br
+%table.table.table-stripted
+  %tr
+    %th#th Name
+    %th#th
+    %th#th
+    %th#th
+
+  - categories.each do |category|
+    %tr
+      %td#title= link_to category.name.capitalize, category, class: 'btn btn-default btn-lg'
+      %td= link_to 'Show', category, class: 'btn btn-warning btn-sm'
+      -if is_admin?
+        %td= link_to 'Edit', edit_category_path(category), class: 'btn btn-info btn-sm'
+        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
+      -else
+

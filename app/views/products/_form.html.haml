@@ -15,7 +15,7 @@
     = f.text_area :description, class: 'tinymce'
   .form-group#reviewrating
     = f.label :price
-    = f.text_field :price, class: 'form-control'
+    = f.number_field :price, min: 1 , class: 'form-control'
    
 
   = f.submit 'Save', class: 'btn btn-success'

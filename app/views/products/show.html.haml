@@ -10,7 +10,7 @@
       %td= product.title
     %tr
       %th#tabletitle Description
-      %td= product.description.html_safe
+      %td= raw product.description
     %tr
       %th#tabletitle Price
       %td= product.price

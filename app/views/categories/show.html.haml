@@ -27,7 +27,7 @@
         %tr
           %td#title= link_to product.title.capitalize, category_product_url(category, product)
           %td= product.price
-          %td#description= product.description.html_safe
+          %td#description= raw product.description
 
 
 %br

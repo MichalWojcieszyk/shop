@@ -12,7 +12,7 @@
   - products.each do |product|
     %tr
       %td= link_to product.title.capitalize, category_product_url(category, product)
-      %td= product.description.capitalize.html_safe
+      %td=raw product.description.capitalize
       %td= product.price
       -if user_signed_in?
         %td= link_to 'Show', category_product_path(category.id, product.id), class: 'btn btn-warning btn-sm'

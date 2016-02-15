@@ -18,7 +18,8 @@ gem 'jquery-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'tzinfo-data'
 gem 'faker'
-gem 'tinymce-rails'
+gem 'trix'
+gem 'redcarpet'
 
 group :development do
   gem 'spring'

@@ -37,7 +37,7 @@
       %th#threviews Created at:
     - reviews.last(5).each do |review|
       %tr
-        %td= review.content.html_safe
+        %td= review.content
         %td= review.rating
         %td= review.created_at.strftime('%d-%m-%Y')
   

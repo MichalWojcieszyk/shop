@@ -24,9 +24,9 @@
 
       - category.products.each do |product|
         %tr
-          %td#title= link_to product.title.capitalize, category_product_url(category, product)
+          %td#title= link_to (markdown(product.title.capitalize)), category_product_url(category, product)
           %td= product.price
-          %td#description= raw product.description
+          %td#description= markdown(product.description)
 
 
 %br

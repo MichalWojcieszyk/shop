@@ -3,12 +3,12 @@ connection: &connection
   encoding: unicode
   host:     localhost
   pool: 5
-  username: postgres
+  username: workshops
   password: password
 
 development:
   <<: *connection
-  database: shop
+  database: shop_development
 
 test: &test
   <<: *connection

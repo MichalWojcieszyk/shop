@@ -1,12 +1,10 @@
 .panel.panel-default  
   .panel-body#usercontent
     %b Product review:
-    #italic= review.content.html_safe
+    #italic= markdown(review.content)
     %br
     %b Product rating:
     #italic= review.rating
     %br
     %b Review created
-    #italic= time_ago_in_words(review.created_at)
-    ago
-    
+    #italic= "#{time_ago_in_words(review.created_at)} ago"

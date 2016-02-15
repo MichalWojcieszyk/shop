@@ -20,9 +20,14 @@ gem 'tzinfo-data'
 gem 'faker'
 gem 'trix'
 gem 'redcarpet'
+gem "administrate", "~> 0.1.3"
 
 group :development do
   gem 'spring'
+end
+
+group :development, :test do
+	gem 'polishgeeks-dev-tools'
 end
 
 group :production do

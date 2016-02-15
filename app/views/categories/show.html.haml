@@ -28,7 +28,6 @@
           %td= product.price
           %td#description= markdown(product.description)
 
-
 %br
 -if is_admin?
   = link_to 'Edit', edit_category_path(category), class: 'btn btn-info'

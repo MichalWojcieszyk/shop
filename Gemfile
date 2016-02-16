@@ -21,6 +21,7 @@ gem 'faker'
 gem 'trix'
 gem 'redcarpet'
 gem "administrate", "~> 0.1.3"
+gem 'will_paginate', '~> 3.0.6'
 
 group :development do
   gem 'spring'

@@ -358,6 +358,7 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.7)
     yard (0.8.7.6)
 
 PLATFORMS
@@ -388,6 +389,7 @@ DEPENDENCIES
   trix
   tzinfo-data
   uglifier
+  will_paginate (~> 3.0.6)
 
 BUNDLED WITH
    1.10.6

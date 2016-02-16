@@ -1,5 +1,7 @@
 %h1 Products
 
+= will_paginate @products
+
 %table.table
   %tr
     %th#th Title
@@ -9,7 +11,7 @@
     %th#th
     %th#th
 
-  - products.each do |product|
+  - @products.each do |product|
     %tr
       %td= link_to product.title.capitalize, category_product_url(category, product)
       %td=raw product.description.capitalize

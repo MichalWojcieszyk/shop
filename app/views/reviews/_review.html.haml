@@ -8,3 +8,6 @@
     %br
     %b Review created
     #italic= "#{time_ago_in_words(review.created_at)} ago"
+    %br
+    %b Review by
+    #italic= review.user.email

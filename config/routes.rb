@@ -8,18 +8,15 @@ Rails.application.routes.draw do
     root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
 
-  get 'users/show'
   resources :categories do
-    resources :products do
+    resources :products, only: [:edit, :update, :destroy, :show, :new, :create] do
       resources :reviews
     end
   end
-
+  get 'products', to: 'products#index'
   
   devise_for :users
-  #get 'user/:id' => 'users#show'
-  resources :users
+  resources :users, only: :show
   
-
   root 'categories#index'
 end

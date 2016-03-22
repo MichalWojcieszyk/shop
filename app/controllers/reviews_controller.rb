@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   expose(:review)
   expose(:product)
-  expose(:users)
 
   def edit
   end

@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
   before_action :author, only: [:edit, :update]
+  
   expose(:category)
-  #expose(:products)
   expose(:product)
   expose(:review) { Review.new }
   expose_decorated(:reviews, ancestor: :product)
   
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 4)
+    @products = Product.paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
 
   def destroy
     product.destroy
-    redirect_to category_url(product.category), notice: 'Product was successfully destroyed.'
+    redirect_to products_path, notice: 'Product was successfully destroyed.'
   end
 
   private

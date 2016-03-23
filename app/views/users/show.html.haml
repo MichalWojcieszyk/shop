@@ -23,14 +23,13 @@
   .panel.panel-primary#threviews
     Account created at:
   .panel-body#usercontent
-    = user.created_at.strftime('%d-%m-%Y %H:%M:%S')
+    = user.created_at.strftime('%d-%m-%Y')
 
--if user.avatar?
-  .panel.panel-default
-    .panel.panel-primary#threviews
-      Image:
-    .panel-body#usercontent
-      = image_tag user.avatar.url(:thumb)
+.panel.panel-default
+  .panel.panel-primary#threviews
+    Avatar:
+  .panel-body#usercontent
+    = avatar_for(user)
 
 %br
 -if user.reviews.empty?
@@ -47,6 +46,6 @@
       %tr
         %td= review.content
         %td= review.rating
-        %td= review.created_at.strftime('%d-%m-%Y')
+        %td= review.created_at.strftime('%d-%m-%Y %H:%M:%S')
 =link_to "Edit", edit_user_path(current_user), class: 'btn btn-primary'
   

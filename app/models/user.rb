@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :products
 
   acts_as_voter
+  mount_uploader :avatar, AvatarUploader
 
-  validates_presence_of :firstname, :lastname
+  validates_presence_of :firstname, :lastname, :email
 end

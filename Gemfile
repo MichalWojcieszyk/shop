@@ -21,11 +21,16 @@ gem 'redcarpet'
 gem "administrate", "~> 0.1.3"
 gem 'will_paginate', '~> 3.0.6'
 gem 'faker'
-gem 'better_errors'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'pry'
+gem 'carrierwave'
+gem 'mini_magick'
+
 
 group :development do
   gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do

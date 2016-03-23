@@ -1,6 +1,6 @@
 -#= binding.pry
 %h1 Your profile
-  
+
 .panel.panel-default
   .panel.panel-primary#threviews
     First name:
@@ -15,7 +15,7 @@
     
 .panel.panel-default
   .panel.panel-primary#threviews
-    First name:
+    Email:
   .panel-body#usercontent
     = user.email
   
@@ -24,11 +24,19 @@
     Account created at:
   .panel-body#usercontent
     = user.created_at.strftime('%d-%m-%Y %H:%M:%S')
+
+-if user.avatar?
+  .panel.panel-default
+    .panel.panel-primary#threviews
+      Image:
+    .panel-body#usercontent
+      = image_tag user.avatar.url(:thumb)
+
 %br
 -if user.reviews.empty?
   #empty You haven't got any reviews
 -else
-  %h2#center Your last 5 reviews
+  %h2#center Your last reviews
   %br
   %table.table.table-stripted
     %tr
@@ -40,4 +48,5 @@
         %td= review.content
         %td= review.rating
         %td= review.created_at.strftime('%d-%m-%Y')
+=link_to "Edit", edit_user_path(current_user), class: 'btn btn-primary'
   

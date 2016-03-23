@@ -31,6 +31,18 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'web-console'
+end
+
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'factory_girl_rails'
+end
+
+group :test do
+	gem 'capybara'
+	gem 'database_cleaner'
+	gem 'shoulda-matchers', require: false
 end
 
 group :production do

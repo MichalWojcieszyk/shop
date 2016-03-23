@@ -4,13 +4,12 @@ Rails.application.routes.draw do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
       resources dashboard_resource
     end
-
     root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
 
   resources :categories do
-    resources :products, only: [:show, :destroy, :update, :create, :new, :edit] do
-      resources :reviews
+    resources :products do
+      resources :reviews, only: [:new, :create]
     end
   end
   get 'products', to: 'products#index'

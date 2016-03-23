@@ -8,6 +8,9 @@
     %th#th Description
     %th#th Price
     %th#th Category
+    %th#th 
+    %th#th 
+    %th#th
     %th#th
     %th#th
     %th#th
@@ -23,3 +26,13 @@
         -if current_user.id == product.user_id
           %td= link_to 'Edit', edit_category_product_path(product.category_id, product.id), class: 'btn btn-info btn-sm'
           %td= link_to 'Destroy', category_product_path(product.category_id, product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
+      %td
+        = link_to like_product_path(product), class: 'like', method: :put do
+          %button.btn.btn-info{type: "button"}
+            %span.glyphicon.glyphicon-thumbs-up.glyphicon-align-center{"aria-hidden" => "true"}
+            %span.badge= product.get_upvotes.size
+      %td
+        = link_to unlike_product_path(product), class: 'like', method: :put do
+          %button.btn.btn-info{type: "button"}
+            %span.glyphicon.glyphicon-thumbs-down.glyphicon-align-center{"aria-hidden" => "true"}
+            %span.badge= product.get_downvotes.size

@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-
 gem 'pg'
 gem 'draper'
 gem 'decent_exposure'
@@ -21,9 +20,9 @@ gem 'trix'
 gem 'redcarpet'
 gem "administrate", "~> 0.1.3"
 gem 'will_paginate', '~> 3.0.6'
-gem 'cancancan', '~> 1.10'
 gem 'faker'
 gem 'better_errors'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development do
   gem 'spring'

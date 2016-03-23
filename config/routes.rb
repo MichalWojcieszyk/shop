@@ -9,14 +9,22 @@ Rails.application.routes.draw do
   end
 
   resources :categories do
-    resources :products, only: [:edit, :update, :destroy, :show, :new, :create] do
+    resources :products, only: [:show, :destroy, :update, :create, :new, :edit] do
       resources :reviews
     end
   end
   get 'products', to: 'products#index'
+
+  resources :products do
+    member do
+      put 'like' => 'products#upvote'
+      put 'unlike' => 'products#downvote'
+    end
+  end
   
   devise_for :users
   resources :users, only: :show
+
   
   root 'categories#index'
 end

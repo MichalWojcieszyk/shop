@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   expose_decorated(:reviews, ancestor: :product)
   
   def index
-    @products = Product.paginate(page: params[:page], per_page: 10)
+    @products = Product.paginate(page: params[:page], per_page: 10).order(cached_votes_score: :desc)
   end
 
   def show
@@ -42,6 +42,16 @@ class ProductsController < ApplicationController
   def destroy
     product.destroy
     redirect_to products_path, notice: 'Product was successfully destroyed.'
+  end
+
+  def upvote
+    product.upvote_from current_user
+    redirect_to products_path
+  end
+
+  def downvote
+    product.downvote_from current_user
+    redirect_to products_path
   end
 
   private

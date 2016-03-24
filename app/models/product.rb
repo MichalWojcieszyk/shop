@@ -5,7 +5,8 @@ class Product < ActiveRecord::Base
 
   acts_as_votable
 
-  validates_presence_of :title, :description, :price
+  validates :title, :description, :price, presence: true
   
-  validates_format_of :price, with: /\A\d+(?:\.\d{0,2})?\z/
+  validates :price, format: { :with => /\A\d+(?:\.\d{0,2})?\z/ }
+  validates :price, numericality: {greater_than: 0, less_than: 1000000}
 end

@@ -20,4 +20,11 @@ RSpec.describe Product do
   	it { is_expected.to have_db_index :category_id }
   	it { is_expected.to have_db_index :user_id }
   end
+
+  describe '#price' do
+    let(:product) { build(:product, price: 10.121) }
+    it 'is limited to two decimal places' do
+      expect(product).to_not be_valid
+    end
+  end
 end

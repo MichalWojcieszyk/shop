@@ -14,7 +14,7 @@
     = f.text_area :description, class: 'form-control'
   .form-group#reviewrating
     = f.label :price
-    = f.number_field :price, min: 1 , class: 'form-control'
+    = f.number_field :price, :class => 'text_field', :step => 0.01 , class: 'form-control'
    
 
   = f.submit 'Save', class: 'btn btn-success'

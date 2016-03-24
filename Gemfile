@@ -25,7 +25,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'pry'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'rubocop', require: false
 
 group :development do
   gem 'spring'
@@ -35,14 +35,14 @@ group :development do
 end
 
 group :development, :test do
-	gem 'rspec-rails'
-	gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
-	gem 'capybara'
-	gem 'database_cleaner'
-	gem 'shoulda-matchers', require: false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false
 end
 
 group :production do

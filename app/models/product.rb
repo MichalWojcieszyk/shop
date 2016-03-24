@@ -7,5 +7,5 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :title, :description, :price
   
-  validates_format_of :price, with: /^\d+\.?\d{0,2}$/, multiline: true
+  validates_format_of :price, with: /\A\d+(?:\.\d{0,2})?\z/
 end

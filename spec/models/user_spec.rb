@@ -20,4 +20,8 @@ RSpec.describe User do
 		it { is_expected.to validate_presence_of :lastname }
 		it { is_expected.to validate_presence_of :email }
 	end
+
+	it "by default isn't admin" do
+		expect(User.new).to_not be_admin
+	end
 end

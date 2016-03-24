@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323122940) do
+ActiveRecord::Schema.define(version: 20160324102556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,18 +25,18 @@ ActiveRecord::Schema.define(version: 20160323122940) do
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.decimal  "price",                   precision: 8, scale: 2
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
     t.integer  "user_id"
     t.integer  "category_id"
-    t.integer  "cached_votes_total",      default: 0
-    t.integer  "cached_votes_score",      default: 0
-    t.integer  "cached_votes_up",         default: 0
-    t.integer  "cached_votes_down",       default: 0
-    t.integer  "cached_weighted_score",   default: 0
-    t.integer  "cached_weighted_total",   default: 0
-    t.float    "cached_weighted_average", default: 0.0
+    t.integer  "cached_votes_total",                              default: 0
+    t.integer  "cached_votes_score",                              default: 0
+    t.integer  "cached_votes_up",                                 default: 0
+    t.integer  "cached_votes_down",                               default: 0
+    t.integer  "cached_weighted_score",                           default: 0
+    t.integer  "cached_weighted_total",                           default: 0
+    t.float    "cached_weighted_average",                         default: 0.0
   end
 
   add_index "products", ["cached_votes_down"], name: "index_products_on_cached_votes_down", using: :btree

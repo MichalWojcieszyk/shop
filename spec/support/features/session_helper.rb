@@ -21,7 +21,7 @@ module Features
     end
 
     def logout
-      click_on 'Logout'
+      click_button 'Logout'
     end
   end
 end

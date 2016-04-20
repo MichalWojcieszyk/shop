@@ -32,18 +32,41 @@
     = avatar_for(user)
 
 %br
--if user.reviews.empty?
+-if current_user.payments.empty?
+  #empty You haven't bought any products.
+-else
+  %h2#center Your last purchases
+  %br
+  %table.table.table-stripted
+    %tr
+      %th#threviews Product:
+      %th#threviews Price:
+      %th#threviews Quantity:
+      %th#threviews Amount:
+      %th#threviews Time:
+    - current_user.payments.last(5).each do |payment|
+      %tr
+        %td= payment.product.title
+        %td= payment.product.price
+        %td= payment.quantity
+        %td= payment.amount
+        %td= payment.created_at.strftime('%d-%m-%Y %H:%M:%S')
+
+%br
+-if current_user.reviews.empty?
   #empty You haven't got any reviews
 -else
   %h2#center Your last reviews
   %br
   %table.table.table-stripted
     %tr
+      %th#threviews Product:
       %th#threviews Review content:
       %th#threviews Review rating:
       %th#threviews Created at:
-    - reviews.last(5).each do |review|
+    - current_user.reviews.last(5).each do |review|
       %tr
+        %td= review.product.title
         %td= review.content
         %td= review.rating
         %td= review.created_at.strftime('%d-%m-%Y %H:%M:%S')

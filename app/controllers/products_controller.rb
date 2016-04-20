@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   expose(:category)
   expose(:product)
   expose(:review) { Review.new }
+  expose(:payment) { Payment.new }
   expose_decorated(:reviews, ancestor: :product)
   
   def index
@@ -54,20 +55,17 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
-  def buy
-  end
-
   private
 
   def product_params
     params.require(:product).permit(:title, :description, :price, :category_id, :user_id)
   end
 
-  def author
-    unless product.user == current_user
-      redirect_to category_product_url(category, product),
-      flash: { error: 'You are not allowed to edit this product.' }
-    end
-  end
+  # def author
+  #   unless product.user == current_user
+  #     redirect_to category_product_url(category, product),
+  #     flash: { error: 'You are not allowed to edit this product.' }
+  #   end
+  # end
 end
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories do
     resources :products do
       resources :reviews, only: [:new, :create]
+      resources :payments
     end
   end
   get 'products', to: 'products#index'
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
     member do
       put 'like' => 'products#upvote'
       put 'unlike' => 'products#downvote'
-      get 'buy'
     end
   end
     

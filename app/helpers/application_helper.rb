@@ -17,4 +17,11 @@ module ApplicationHelper
 		}
 		Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
 	end
+
+  def author
+    unless product.user == current_user
+      redirect_to category_product_url(category, product),
+      flash: { error: 'You are not allowed to edit this product.' }
+    end
+  end
 end

@@ -1,5 +1,8 @@
 .panel.panel-default  
   .panel-body#usercontent
+    %b Product:
+    #italic= markdown(review.product.title)
+    %br
     %b Product review:
     #italic= markdown(review.content)
     %br
@@ -11,3 +14,4 @@
     %br
     %b Review by
     #italic= review.user.email
+    

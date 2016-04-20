@@ -1,0 +1,10 @@
+= simple_form_for [category, product, payment] do |f|
+  - if review.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(payment.errors.count, "error")} prohibited this payment from being saved:"
+      %ul
+        -payment.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group#reviewrating
+    = f.input :quantity, collection: 1..1000, class: 'form-control'
+  = f.submit 'Buy', data: { confirm: 'Are you sure you want to buy this product?' }, class: 'btn btn-default'

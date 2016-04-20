@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :products
+  has_many :payments
 
   acts_as_voter
   mount_uploader :avatar, AvatarUploader
 
-  validates_presence_of :firstname, :lastname, :email
+  validates :firstname, :lastname, :email, presence: true
 end

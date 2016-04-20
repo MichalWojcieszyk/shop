@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+  include ApplicationHelper
+  
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
@@ -8,9 +9,9 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-    protected
+  protected
       
-      def configure_permitted_parameters
-          devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :firstname, :lastname) }
-      end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :firstname, :lastname) }
+  end
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories do
     resources :products do
       resources :reviews, only: [:new, :create]
+      resources :payments
     end
   end
   get 'products', to: 'products#index'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
       put 'unlike' => 'products#downvote'
     end
   end
-  
+    
   devise_for :users
   resources :users, only: [:show, :edit, :update]
 

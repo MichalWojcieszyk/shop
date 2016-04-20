@@ -17,6 +17,12 @@
       %th#tabletitle Category
       %td= markdown(product.category.name)
 %br
+-if current_user.id != product.user_id
+  %h3 Buy this product
+  %br
+  = render 'payments/form'
+
+%br
 -if user_signed_in?
   #flip
     %h3 Add review

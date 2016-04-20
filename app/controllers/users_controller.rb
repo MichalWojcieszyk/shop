@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   
   expose(:user)
   expose(:reviews, ancestor: :user)
+  expose(:payments)
+  expose(:product)
   
   def show
   end

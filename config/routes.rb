@@ -18,9 +18,10 @@ Rails.application.routes.draw do
     member do
       put 'like' => 'products#upvote'
       put 'unlike' => 'products#downvote'
+      get 'buy'
     end
   end
-  
+    
   devise_for :users
   resources :users, only: [:show, :edit, :update]
 

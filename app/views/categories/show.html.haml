@@ -20,6 +20,7 @@
         %th#th Product
         %th#th Price
         %th#th Description
+        %th#th Buy
     
 
       - category.products.each do |product|
@@ -27,6 +28,7 @@
           %td#title= link_to (markdown(product.title.capitalize)), category_product_url(category, product)
           %td= product.price
           %td#description= markdown(product.description)
+          %td= link_to 'Buy', buy_product_path(product), class: 'btn btn-danger'
 
 %br
 -if is_admin?

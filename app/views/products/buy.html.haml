@@ -1,0 +1,24 @@
+%p#notice= notice
+%p#error= flash[:error]
+
+%h1 Product
+#productlist
+  %table.table.table-bordered
+    %tr
+      %th#tabletitle Title
+      %td= markdown(product.title)
+    %tr
+      %th#tabletitle Description
+      %td= markdown(product.description)
+    %tr
+      %th#tabletitle Price
+      %td= markdown(product.price.to_s)
+    %tr
+      %th#tabletitle Category
+      %td= markdown(product.category.name)
+    %tr
+      #th#tabletitle Buy
+      %td= link_to 'Buy'
+
+%br
+= link_to 'Back', category_products_path(product.category.id), class: 'btn btn-primary'

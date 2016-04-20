@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :reviews, dependent: :destroy
+  has_many :payments
 
   acts_as_votable
 

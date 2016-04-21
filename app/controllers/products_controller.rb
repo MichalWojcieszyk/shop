@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if self.product.update(product_params)
+    if product.update(product_params)
       redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
     else
       render action: 'edit'
@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :category_id, :user_id)
+    params.require(:product).permit(:title, :description, :price, :on_stock, :category_id, :user_id)
   end
 
   # def author

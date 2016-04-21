@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   expose(:review) { Review.new }
   expose(:payment) { Payment.new }
   expose_decorated(:reviews, ancestor: :product)
+  expose(:user)
   
   def index
     @products = Product.paginate(page: params[:page], per_page: 10).order(cached_votes_score: :desc)

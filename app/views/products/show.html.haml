@@ -19,6 +19,9 @@
     %tr
       %th#tabletitle On stock
       %td= markdown(product.on_stock.to_s)
+    %tr
+      %th#tabletitle User
+      %td= markdown(product.user.nickname)
 %br
 -if current_user.id != product.user_id
   %h3 Buy this product

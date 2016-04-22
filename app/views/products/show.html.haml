@@ -22,6 +22,9 @@
     %tr
       %th#tabletitle User
       %td= markdown(product.user.nickname)
+    %tr
+      %th#tabletitle Image
+      %td= avatar_for(product)
 %br
 -if current_user.id != product.user_id
   %h3 Buy this product

@@ -36,6 +36,9 @@
     Your account balance:
   .panel-body#usercontent
     = user.cash_amount
+    %br 
+    %br
+    = link_to 'Make a deposit', new_deposit_path, class: 'btn btn-primary'
 
 .panel.panel-default
   .panel.panel-primary#threviews

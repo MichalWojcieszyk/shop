@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   has_many :payments
 
   acts_as_votable
+  mount_uploader :avatar, AvatarUploader
 
   validates :title, :description, :price, presence: true
   

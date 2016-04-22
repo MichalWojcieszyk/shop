@@ -1,0 +1,10 @@
+= simple_form_for deposit do |f|
+  - if deposit.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(deposit.errors.count, "error")} prohibited this deposite from being saved:"
+      %ul
+        -deposit.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group#reviewrating
+    = f.input :amount, collection: 1..10000, class: 'form-control'
+  = f.submit 'Deposit', data: { confirm: 'Are you sure you want to make deposit?' }, class: 'btn btn-default'

@@ -1,5 +1,5 @@
 = simple_form_for [category, product, payment] do |f|
-  - if review.errors.any?
+  - if payment.errors.any?
     #error_explanation
       %h2= "#{pluralize(payment.errors.count, "error")} prohibited this payment from being saved:"
       %ul

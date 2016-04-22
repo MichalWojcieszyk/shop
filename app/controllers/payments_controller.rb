@@ -23,18 +23,6 @@ class PaymentsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
-  def index
-
-  end
-
-  def destroy
-
-  end
-
   private
 
   def payment_params

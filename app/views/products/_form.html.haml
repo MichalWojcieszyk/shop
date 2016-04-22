@@ -16,6 +16,9 @@
     = f.label :price
     = f.number_field :price, class: 'text_field', step: 0.01 , class: 'form-control'
   .form-group#reviewrating
-    = f.label :on_stock, as: 'On stock'
+    = f.label :quantity
     = f.number_field :on_stock, collection: 1..1000, class: 'form-control'
+  .form-group
+    = f.label :image
+    = f.file_field :avatar, class: 'form-control'
   = f.submit 'Save', class: 'btn btn-success'

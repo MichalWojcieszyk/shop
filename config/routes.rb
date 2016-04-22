@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :categories do
     resources :products do
       resources :reviews, only: [:new, :create]
-      resources :payments
+      resources :payments, only: [:new, :create]
     end
   end
+
   get 'products', to: 'products#index'
 
   resources :products do
@@ -23,7 +24,10 @@ Rails.application.routes.draw do
   end
     
   devise_for :users
+
   resources :users, only: [:show, :edit, :update]
+  resources :deposits, only: [:new, :create]
+  
 
   root 'categories#index'
 end

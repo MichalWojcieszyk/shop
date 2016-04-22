@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421115031) do
+ActiveRecord::Schema.define(version: 20160422130811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20160421115031) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "deposits", force: :cascade do |t|
+    t.decimal  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "deposits", ["user_id"], name: "index_deposits_on_user_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.integer  "quantity"
@@ -50,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160421115031) do
     t.integer  "cached_weighted_total",                           default: 0
     t.float    "cached_weighted_average",                         default: 0.0
     t.integer  "on_stock"
+    t.string   "avatar"
   end
 
   add_index "products", ["cached_votes_down"], name: "index_products_on_cached_votes_down", using: :btree
@@ -75,23 +85,23 @@ ActiveRecord::Schema.define(version: 20160421115031) do
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                                           default: "",    null: false
+    t.string   "encrypted_password",                              default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                                   default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.boolean  "admin",                  default: false
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+    t.boolean  "admin",                                           default: false
     t.string   "firstname"
     t.string   "lastname"
     t.string   "avatar"
-    t.integer  "cash_amount"
+    t.decimal  "cash_amount",            precision: 10, scale: 2, default: 0.0
     t.string   "nickname"
   end
 
@@ -113,6 +123,7 @@ ActiveRecord::Schema.define(version: 20160421115031) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "deposits", "users"
   add_foreign_key "payments", "products"
   add_foreign_key "payments", "users"
   add_foreign_key "products", "categories"

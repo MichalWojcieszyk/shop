@@ -23,10 +23,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    self.product = Product.new(product_params)
+    product = Product.new(product_params)
     product.user_id = current_user.id if current_user
     if product.save
       category.products << product
+      ProductMailer.product_created(current_user, product).deliver
       redirect_to category_product_url(category, product), notice: 'Product was successfully created.'
     else
       render action: 'new'
@@ -59,14 +60,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :on_stock, :category_id, :user_id)
+    params.require(:product).permit(:title, :description, :price, :on_stock, :category_id, :user_id, :avatar)
   end
-
-  # def author
-  #   unless product.user == current_user
-  #     redirect_to category_product_url(category, product),
-  #     flash: { error: 'You are not allowed to edit this product.' }
-  #   end
-  # end
 end
-

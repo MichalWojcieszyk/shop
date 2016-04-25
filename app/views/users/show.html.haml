@@ -47,6 +47,25 @@
     = avatar_for(user)
 
 %br
+-if current_user.products.empty?
+  #empty You haven't got any products.
+-else
+  %h2#center Your products
+  %br
+  %table.table.table-stripted
+    %tr
+      %th#threviews Product:
+      %th#threviews Price:
+      %th#threviews Quantity:
+      %th#threviews Time:
+    - current_user.products.last(15).each do |product|
+      %tr
+        %td= product.title
+        %td= product.price
+        %td= product.on_stock
+        %td= product.created_at.strftime('%d-%m-%Y %H:%M:%S')
+
+%br
 -if current_user.payments.empty?
   #empty You haven't bought any products.
 -else
@@ -85,5 +104,20 @@
         %td= review.content
         %td= review.rating
         %td= review.created_at.strftime('%d-%m-%Y %H:%M:%S')
+
+%br
+-if current_user.deposits.empty?
+  #empty You haven't made any deposits.
+-else
+  %h2#center Your last deposits
+  %br
+  %table.table.table-stripted
+    %tr
+      %th#threviews Deposit:
+      %th#threviews Time:
+    - current_user.deposits.last(5).each do |deposit|
+      %tr
+        %td= deposit.amount
+        %td= deposit.created_at.strftime('%d-%m-%Y %H:%M:%S')
 =link_to "Edit", edit_user_path(current_user), class: 'btn btn-primary'
   

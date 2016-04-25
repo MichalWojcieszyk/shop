@@ -1,0 +1,9 @@
+%h3 Hi, #{@user.firstname + " " + @user.lastname}
+%h4 You have added new product! 
+%h4 Product details:
+%p product: #{@product.title}
+%p description: #{@product.description}
+%p category: #{@product.category.name}
+%p price: #{@product.price}
+%p quantity: #{@product.on_stock}
+%p time: #{@product.created_at.strftime('%d-%m-%Y %H:%M:%S')}

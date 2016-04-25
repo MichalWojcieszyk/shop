@@ -17,6 +17,7 @@ class PaymentsController < ApplicationController
       user.save
       product.save
       product_user.save
+      PaymentMailer.payment_created(user, product_user, payment).deliver
       redirect_to user_path(current_user), notice: 'Congratulations! You bought this product'
     else
       render action: 'new'
@@ -26,6 +27,6 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:quantity)
+    params.require(:payment).permit(:quantity, :amount)
   end
 end

@@ -32,6 +32,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console'
+  gem 'letter_opener'
 end
 
 group :development, :test do

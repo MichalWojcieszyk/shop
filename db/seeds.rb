@@ -58,8 +58,8 @@ users = User.all
                              user: users.sample,
                              title: "#{Faker::Commerce.product_name}",
                              description: "#{Faker::Lorem.sentences(3).join("<br/>")}",
-                             price: rand(1..50000),
-                             on_stock: rand(1000..10000)
+                             price: rand(1..5000),
+                             on_stock: rand(100..10000)
                              )
     puts product.inspect
     3.times do

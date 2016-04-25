@@ -7,8 +7,8 @@ class Product < ActiveRecord::Base
   acts_as_votable
   mount_uploader :avatar, AvatarUploader
 
-  validates :title, :description, :price, presence: true
+  validates :title, :description, :price, :on_stock, presence: true
   
   validates :price, format: { :with => /\A\d+(?:\.\d{0,2})?\z/ }
-  validates :price, numericality: {greater_than: 0, less_than: 1000000}
+  validates :price, numericality: { greater_than: 0, less_than: 1000000 }
 end

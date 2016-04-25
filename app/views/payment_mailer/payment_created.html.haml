@@ -1,0 +1,11 @@
+%h3 Hi, #{@product_user.firstname + " " + @product_user.lastname}
+%h4 #{@current_user.email} has bought your product #{@payment.product.title}
+%h4 Payment details: 
+%p product: #{@payment.product.title}
+%p description: #{@payment.product.description}
+%p category: #{@payment.product.category.name}
+%p price: #{@payment.product.price}
+%p quantity: #{@payment.quantity}
+%p amount: #{@payment.amount}
+%p time: #{@payment.created_at.strftime('%d-%m-%Y %H:%M:%S')}
+%p bought by: #{@current_user.email}

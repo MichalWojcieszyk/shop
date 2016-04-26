@@ -7,6 +7,7 @@
     %th#th Title
     %th#th Description
     %th#th Price
+    %th#th Available
     %th#th Category
     %th#th 
     %th#th 
@@ -20,6 +21,7 @@
       %td= link_to product.title.capitalize, category_product_url(product.category_id, product)
       %td= product.description.capitalize
       %td= product.price
+      %td= product.on_stock
       %td= product.category.name
       -if user_signed_in?
         %td= link_to 'Show', category_product_path(product.category_id, product.id), class: 'btn btn-warning btn-sm'

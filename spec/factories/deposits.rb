@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :deposit do
-    amount "9.99"
+    amount 100
   end
-
 end

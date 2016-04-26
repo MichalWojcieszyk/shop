@@ -1,0 +1,17 @@
+.panel.panel-default  
+  .panel-body#usercontent
+    %b Product:
+    #italic= markdown(payment.product.title)
+    %br
+    %b Payment quantity:
+    #italic= payment.quantity
+    %br
+    %b Payment amount:
+    #italic= payment.amount
+    %br
+    %b Payment created:
+    #italic= payment.created_at.strftime('%d-%m-%Y')
+    %br
+    %b Bought by:
+    #italic= payment.user.nickname
+    

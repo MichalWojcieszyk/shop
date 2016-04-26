@@ -60,7 +60,7 @@
       %th#threviews Time:
     - current_user.products.last(15).each do |product|
       %tr
-        %td= product.title
+        %td= link_to product.title, category_product_path(product.category, product)
         %td= product.price
         %td= product.on_stock
         %td= product.created_at.strftime('%d-%m-%Y %H:%M:%S')
@@ -80,7 +80,7 @@
       %th#threviews Time:
     - current_user.payments.last(5).each do |payment|
       %tr
-        %td= payment.product.title
+        %td= link_to payment.product.title, category_product_path(product.category, payment.product)
         %td= payment.product.price
         %td= payment.quantity
         %td= payment.amount
@@ -100,7 +100,7 @@
       %th#threviews Created at:
     - current_user.reviews.last(5).each do |review|
       %tr
-        %td= review.product.title
+        %td= link_to review.product.title, category_product_path(product.category, review.product)
         %td= review.content
         %td= review.rating
         %td= review.created_at.strftime('%d-%m-%Y %H:%M:%S')

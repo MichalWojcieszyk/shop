@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   expose(:review) { Review.new }
   expose(:payment) { Payment.new }
   expose_decorated(:reviews, ancestor: :product)
+  expose_decorated(:payments, ancestor: :product)
   expose(:user)
   
   def index

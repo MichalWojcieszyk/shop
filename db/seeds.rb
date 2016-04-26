@@ -57,7 +57,7 @@ users = User.all
     product = Product.create(category: category,
                              user: users.sample,
                              title: "#{Faker::Commerce.product_name}",
-                             description: "#{Faker::Lorem.sentences(3).join("<br/>")}",
+                             description: "#{Faker::Lorem.sentences(3).join(" ")}",
                              price: rand(1..5000),
                              on_stock: rand(100..10000)
                              )

@@ -5,5 +5,6 @@ FactoryGirl.define do
     price 10
     user
     category
+    on_stock 1000
   end	
 end

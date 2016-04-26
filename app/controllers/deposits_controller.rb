@@ -5,7 +5,7 @@ class DepositsController < ApplicationController
 
   def create
     deposit = Deposit.new(deposit_params)
-    user = current_user
+    #@user = current_user
     if deposit.save
       user.deposits << deposit
       user.cash_amount += deposit.amount

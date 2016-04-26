@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :reviews, dependent: :destroy
-  has_many :payments
+  has_many :payments, dependent: :destroy
 
   acts_as_votable
   mount_uploader :avatar, AvatarUploader

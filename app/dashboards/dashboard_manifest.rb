@@ -14,6 +14,8 @@ class DashboardManifest
     :reviews,
     :categories,
     :products,
+    :payments,
+    :deposits
   ]
 
   # `ROOT_DASHBOARD`

@@ -7,6 +7,7 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_filter :authenticate_admin
+    protect_from_forgery with: :exception
 
     def authenticate_admin
       # TODO Add authentication logic here.
@@ -16,6 +17,20 @@ module Admin
     # on index pages. Defaults to 20.
     # def records_per_page
     #   params[:per_page] || 20
+    # end
+
+    # def index
+    #   search_term = params[:search].to_s.strip
+    #   resources = Administrate::Search.new(resource_resolver, search_term).run
+    #   resources = order.apply(resources)
+    #   resources = resources.page(params[:page]).per(records_per_page)
+    #   page = Administrate::Page::Collection.new(dashboard, order: order)
+
+    #   render locals: {
+    #     resources: resources,
+    #     search_term: search_term,
+    #     page: page,
+    #   }
     # end
   end
 end

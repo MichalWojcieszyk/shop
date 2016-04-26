@@ -44,8 +44,12 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product.destroy
-    redirect_to products_path, notice: 'Product was successfully destroyed.'
+    if current_user.id == product.user_id || current_user.try(:admin?) 
+      product.destroy
+      redirect_to products_path, notice: 'Product was successfully destroyed.'
+    else
+      redirect_to category_product_path(product.category, product), notice: 'You are not allowed to edit this product'
+    end
   end
 
   def upvote

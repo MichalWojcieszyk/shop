@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :reviews
-  has_many :products
-  has_many :payments
-  has_many :deposits
+  has_many :reviews, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :payments, dependent: :destroy
+  has_many :deposits, dependent: :destroy
 
   acts_as_voter
   mount_uploader :avatar, AvatarUploader

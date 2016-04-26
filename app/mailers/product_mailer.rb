@@ -3,7 +3,7 @@ class ProductMailer < ActionMailer::Base
     @user = user
     @product = product
 
-    mail(to: user.email,
+    mail(to: @user.email,
          from: 'shopapp@gmail.com',
          subject: 'You added new product'
          )

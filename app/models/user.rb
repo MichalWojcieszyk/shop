@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   validates :firstname, :lastname, :email, :nickname, presence: true
+  validates :cash_amount, numericality: { greater_than_or_equal_to: 0 }
 end

@@ -58,7 +58,7 @@
       %th#threviews Price:
       %th#threviews Quantity:
       %th#threviews Time:
-    - current_user.products.last(15).each do |product|
+    - current_user.products.reverse_order.last(15).each do |product|
       %tr
         %td= link_to product.title, category_product_path(product.category, product)
         %td= product.price
@@ -78,7 +78,7 @@
       %th#threviews Quantity:
       %th#threviews Amount:
       %th#threviews Time:
-    - current_user.payments.last(5).each do |payment|
+    - current_user.payments.reverse_order.last(5).each do |payment|
       %tr
         %td= link_to payment.product.title, category_product_path(product.category, payment.product)
         %td= payment.product.price
@@ -98,7 +98,7 @@
       %th#threviews Review content:
       %th#threviews Review rating:
       %th#threviews Created at:
-    - current_user.reviews.last(5).each do |review|
+    - current_user.reviews.reverse_order.last(5).each do |review|
       %tr
         %td= link_to review.product.title, category_product_path(product.category, review.product)
         %td= review.content

@@ -21,18 +21,13 @@
         %th#th Price
         %th#th Description
         %th#th 
-    
-
       - category.products.each do |product|
         %tr
           %td#title= link_to (markdown(product.title.capitalize)), category_product_url(category, product)
           %td= product.price
           %td#description= markdown(product.description)
           -if current_user && (current_user.id != product.user_id)
-            %td= link_to 'Buy', product_path(product), class: 'btn btn-danger'
-          
-
-
+            %td= link_to 'Buy', category_product_path(product.category, product), class: 'btn btn-danger'
 %br
 -if is_admin?
   = link_to 'Edit', edit_category_path(category), class: 'btn btn-info'

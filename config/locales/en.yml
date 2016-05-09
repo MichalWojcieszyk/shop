@@ -10,6 +10,7 @@ en:
     title: Online shopping
     signed_in: Signed in as
     new_category: Add new category
+    users: User
   shared:
     edit: Edit
     show: Show

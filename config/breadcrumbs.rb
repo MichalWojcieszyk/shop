@@ -1,9 +1,9 @@
 crumb :root do
-  link "Home", root_path
+  link t('navbar.home'), root_path
 end
 
 crumb :categories do
-  link "Categories", categories_path
+  link t('navbar.categories'), categories_path
 end
 
 crumb :category do |category|
@@ -12,7 +12,7 @@ crumb :category do |category|
 end
 
 crumb :products do
-  link "Products", products_path
+  link t('navbar.products'), products_path
 end
 
 crumb :product do
@@ -21,7 +21,7 @@ crumb :product do
 end
 
 crumb :users do
-  link "User"
+  link t('navbar.users')
 end
 
 crumb :user do

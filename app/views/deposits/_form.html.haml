@@ -7,4 +7,4 @@
           %li= msg
   .form-group#reviewrating
     = f.input :amount, collection: 1..10000, class: 'form-control'
-  = f.submit 'Deposit', data: { confirm: 'Are you sure you want to make deposit?' }, class: 'btn btn-default'
+  = f.submit t('shared.deposit'), data: { confirm: 'Are you sure you want to make deposit?' }, class: 'btn btn-default'

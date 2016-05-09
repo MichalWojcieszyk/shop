@@ -1,23 +1,74 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  navbar:
+    home: Home
+    categories: Categories
+    products: Products
+    user: Show user profile
+    logout: Logout
+    login: Login
+    signup: Sign up
+    title: Online shopping
+    signed_in: Signed in as
+    new_category: Add new category
+  shared:
+    edit: Edit
+    show: Show
+    destroy: Destroy
+    back: Back
+    save: Save
+    deposit: Make a deposit
+    buy: Buy
+  category:
+    columns:
+      name: Name
+  product:
+    columns:
+      title: Title
+      description: Description
+      price: Price
+      on_stock: Available items
+      avatar: Image
+      user: User
+  review:
+    columns:
+      content: Content
+      rating: Rating
+      created_at: Time
+  user:
+    columns:
+      email: Email
+      firstname: First Name
+      lastname: Last Name
+      avatar: Avatar
+      cash_amount: Money Balance
+      nickname: Nickname
+      created_at: Account created at
+  deposit:
+    columns:
+      amount: Amount
+      created_at: Date
+  payment:
+    columns:
+      quantity: Quantity
+      amount: Amount
+      created_at: Date
+      product: Product
+  simple_form:
+    labels:
+      payment:
+        quantity: How many products want you to buy?
+      review:
+        content: Review content
+        rating: Review rating
+      product:
+        title: Product title
+        description: Product description
+        price: Product price
+        on_stock: How many products?
+        avatar: Product image
+      user:
+        firstname: First name
+        lastname: Last name
+        avatar: Photo
+      category:
+        name: Category name

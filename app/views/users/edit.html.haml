@@ -3,7 +3,7 @@
 = simple_form_for(user, html: {multipart: true}) do |f|
   = f.input :firstname
   = f.input :lastname
-  = f.file_field :avatar
+  = f.input :avatar
   %br
-  = f.submit 'Save', class: 'btn btn-success'
+  = f.submit t('shared.save'), class: 'btn btn-success'
   

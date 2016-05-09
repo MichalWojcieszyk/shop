@@ -6,25 +6,25 @@
 #productlist
   %table.table.table-bordered
     %tr
-      %th#tabletitle Title
+      %th#tabletitle= t('product.columns.title')
       %td= markdown(product.title)
     %tr
-      %th#tabletitle Description
+      %th#tabletitle= t('product.columns.description')
       %td= markdown(product.description)
     %tr
-      %th#tabletitle Price
+      %th#tabletitle= t('product.columns.price')
       %td= markdown(product.price.to_s)
     %tr
-      %th#tabletitle Category
+      %th#tabletitle= t('product.columns.category')
       %td= markdown(product.category.name)
     %tr
-      %th#tabletitle On stock
+      %th#tabletitle= t('product.columns.on_stock')
       %td= markdown(product.on_stock.to_s)
     %tr
-      %th#tabletitle User
+      %th#tabletitle= t('product.user.columns.nickname')
       %td= markdown(product.user.nickname)
     %tr
-      %th#tabletitle Image
+      %th#tabletitle= t('product.columns.avatar')
       %td= avatar_for(product)
 %br
 -if user_signed_in? && current_user.id != product.user_id 
@@ -58,6 +58,6 @@
 
 %br
 -if current_user && current_user == product.user
-  = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-info'
+  = link_to t('shared.edit'), edit_category_product_path(category.id, product.id), class: 'btn btn-info'
   \|
-= link_to 'Back', products_path, class: 'btn btn-primary'
+= link_to t('shared.back'), products_path, class: 'btn btn-primary'

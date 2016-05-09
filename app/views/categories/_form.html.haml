@@ -1,4 +1,4 @@
-= form_for category do |f|
+= simple_form_for category do |f|
   - if category.errors.any?
     #error_explanation
       %h2= "#{pluralize(category.errors.count, "error")} prohibited this category from being saved:"
@@ -7,7 +7,5 @@
           %li= msg
 
   .form-group#titlewidth
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
-
-  = f.submit 'Save', class: 'btn btn-success'
+    = f.input :name, class: 'form-control'
+  = f.submit t('shared.save'), class: 'btn btn-success'

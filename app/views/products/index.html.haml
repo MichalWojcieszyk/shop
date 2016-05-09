@@ -5,11 +5,11 @@
 
 %table.table
   %tr
-    %th#th Title
-    %th#th Description
-    %th#th Price
-    %th#th Available
-    %th#th Category
+    %th#th= t('product.columns.title')
+    %th#th= t('product.columns.description')
+    %th#th= t('product.columns.price')
+    %th#th= t('product.columns.on_stock')
+    %th#th= t('product.columns.category')
     %th#th 
     %th#th 
     %th#th
@@ -25,9 +25,9 @@
       %td= product.on_stock
       %td= product.category.name
       -if user_signed_in?
-        %td= link_to 'Show', category_product_path(product.category_id, product.id), class: 'btn btn-warning btn-sm'
+        %td= link_to t('shared.show'), category_product_path(product.category_id, product.id), class: 'btn btn-warning btn-sm'
         -if current_user.id != product.user_id && !current_user.try(:admin?)
-          %td= link_to 'Buy', category_product_path(product.category_id, product.id), class: 'btn btn-danger btn-sm'
+          %td= link_to t('shared.buy'), category_product_path(product.category_id, product.id), class: 'btn btn-danger btn-sm'
           %td
             = link_to like_product_path(product), class: 'like', method: :put do
               %button.btn.btn-info{type: "button"}
@@ -39,6 +39,6 @@
                 %span.glyphicon.glyphicon-thumbs-down.glyphicon-align-center{"aria-hidden" => "true"}
                 %span.badge= product.get_downvotes.size
         -if current_user.id == product.user_id
-          %td= link_to 'Edit', edit_category_product_path(product.category_id, product.id), class: 'btn btn-info btn-sm'
-          %td= link_to 'Destroy', category_product_path(product.category_id, product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
+          %td= link_to t('shared.edit'), edit_category_product_path(product.category_id, product.id), class: 'btn btn-info btn-sm'
+          %td= link_to t('shared.destroy'), category_product_path(product.category_id, product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
           

@@ -3,37 +3,37 @@
 
 .panel.panel-default
   .panel.panel-primary#threviews
-    First name:
+    = t('user.columns.firstname')
   .panel-body#userpadding#usercontent
     = user.firstname
     
 .panel.panel-default
   .panel.panel-primary#threviews
-    Last name:
+    = t('user.columns.lastname')
   .panel-body#usercontent
     = user.lastname
 
 .panel.panel-default
   .panel.panel-primary#threviews
-    Nickname:
+    = t('user.columns.nickname')
   .panel-body#usercontent
     = user.nickname
     
 .panel.panel-default
   .panel.panel-primary#threviews
-    Email:
+    = t('user.columns.email')
   .panel-body#usercontent
     = user.email
   
 .panel.panel-default
   .panel.panel-primary#threviews
-    Account created at:
+    = t('user.columns.created_at')
   .panel-body#usercontent
     = user.created_at.strftime('%d-%m-%Y')
 
 .panel.panel-default
   .panel.panel-primary#threviews
-    Your account balance:
+    = t('user.columns.cash_amount')
   .panel-body#usercontent
     = user.cash_amount
     %br 
@@ -42,7 +42,7 @@
 
 .panel.panel-default
   .panel.panel-primary#threviews
-    Avatar:
+    = t('user.columns.avatar')
   .panel-body#usercontent
     = avatar_for(user)
 
@@ -54,10 +54,10 @@
   %br
   %table.table.table-stripted
     %tr
-      %th#threviews Product:
-      %th#threviews Price:
-      %th#threviews Quantity:
-      %th#threviews Time:
+      %th#threviews= t('product.columns.title')
+      %th#threviews= t('product.columns.price')
+      %th#threviews= t('product.columns.quantity')
+      %th#threviews= t('product.columns.time')
     - current_user.products.reverse_order.last(15).each do |product|
       %tr
         %td= product.title
@@ -73,14 +73,14 @@
   %br
   %table.table.table-stripted
     %tr
-      %th#threviews Product:
-      %th#threviews Price:
-      %th#threviews Quantity:
-      %th#threviews Amount:
-      %th#threviews Time:
+      %th#threviews= t('payment.product.columns.title')
+      %th#threviews= t('payment.product.columns.price')
+      %th#threviews= t('payment.columns.quantity')
+      %th#threviews= t('payment.columns.amount')
+      %th#threviews= t('payment.columns.created_at')
     - current_user.payments.reverse_order.last(5).each do |payment|
       %tr
-        %td= payment.product.title#, category_product_path(product.category, payment.product)
+        %td= payment.product.title
         %td= payment.product.price
         %td= payment.quantity
         %td= payment.amount
@@ -94,13 +94,13 @@
   %br
   %table.table.table-stripted
     %tr
-      %th#threviews Product:
-      %th#threviews Review content:
-      %th#threviews Review rating:
-      %th#threviews Created at:
+      %th#threviews= t('review.product.columns.title')
+      %th#threviews= t('review.columns.content')
+      %th#threviews= t('review.columns.rating')
+      %th#threviews= t('review.columns.created_at')
     - current_user.reviews.reverse_order.last(5).each do |review|
       %tr
-        %td= review.product.title#link_to review.product.title, category_product_path(product.category, review.product)
+        %td= review.product.title
         %td= review.content
         %td= review.rating
         %td= review.created_at.strftime('%d-%m-%Y %H:%M:%S')
@@ -113,11 +113,11 @@
   %br
   %table.table.table-stripted
     %tr
-      %th#threviews Deposit:
-      %th#threviews Time:
+      %th#threviews= t('deposit.columns.amount')
+      %th#threviews= t('deposit.columns.created_at')
     - current_user.deposits.last(5).each do |deposit|
       %tr
         %td= deposit.amount
         %td= deposit.created_at.strftime('%d-%m-%Y %H:%M:%S')
-=link_to "Edit", edit_user_path(current_user), class: 'btn btn-primary'
+=link_to t('shared.edit'), edit_user_path(current_user), class: 'btn btn-primary'
   

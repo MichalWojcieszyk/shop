@@ -17,9 +17,9 @@
   -else 
     %table.table.table-bordered
       %tr
-        %th#th Product
-        %th#th Price
-        %th#th Description
+        %th#th= t('product.columns.title')
+        %th#th= t('product.columns.price')
+        %th#th= t('product.columns.description')
         %th#th 
       - category.products.each do |product|
         %tr
@@ -30,8 +30,8 @@
             %td= link_to 'Buy', category_product_path(product.category, product), class: 'btn btn-danger'
 %br
 -if is_admin?
-  = link_to 'Edit', edit_category_path(category), class: 'btn btn-info'
+  = link_to t('shared.edit'), edit_category_path(category), class: 'btn btn-info'
   \|
-  = link_to 'Back', categories_path, class: 'btn btn-warning'
+  = link_to t('shared.back'), categories_path, class: 'btn btn-warning'
 -else 
-  = link_to 'Back', categories_path, class: 'btn btn-warning'
+  = link_to t('shared.back'), categories_path, class: 'btn btn-warning'

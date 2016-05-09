@@ -12,29 +12,29 @@
     %nav.navbar.navbar-inverse{role: "navigation"}
       .container-fluid
         .navbar-header
-          %span.navbar-brand Online shopping
+          %span.navbar-brand= t('navbar.title')
         %ul.nav.navbar-nav
           %li.active
-            =link_to 'Home', root_path
+            =link_to t('navbar.home'), root_path
           %li.active
-            =link_to 'Categories', root_path
+            =link_to t('navbar.categories'), root_path
           %li.active
-            =link_to 'Products', products_path
+            =link_to t('navbar.products'), products_path
           %li.active
             -if user_signed_in?
-              =link_to "Show user profile", user_path(current_user)
+              =link_to t('navbar.user'), user_path(current_user)
 
         %p.navbar-text.navbar-right
          
           -if user_signed_in?
             = link_to avatar_for(current_user, size: 35), user_path(current_user)
-            Signed in as 
+            = t('navbar.signed_in') 
             = link_to current_user.email, user_path(current_user)
-            = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-sm'   
+            = link_to t('navbar.logout'), destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-sm'   
           -else
-            = link_to 'Login', new_user_session_path, :class => 'btn btn-primary btn-sm'
+            = link_to t('navbar.login'), new_user_session_path, :class => 'btn btn-primary btn-sm'
             or
-            = link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary btn-sm'
+            = link_to t('navbar.signup'), new_user_registration_path, :class => 'btn btn-primary btn-sm'
     
     .container
       .jumbotron

@@ -1,17 +1,17 @@
 .panel.panel-default  
   .panel-body#usercontent
-    %b Product:
+    %b= t('review.product.columns.title')
     #italic= markdown(review.product.title)
     %br
-    %b Product review:
+    %b= t('review.columns.content')
     #italic= markdown(review.content)
     %br
-    %b Product rating:
+    %b= t('review.columns.rating')
     #italic= review.rating
     %br
-    %b Review created
+    %b= t('review.columns.created_at')
     #italic= "#{time_ago_in_words(review.created_at)} ago"
     %br
-    %b Review by
+    %b= t('review.user.columns.nickname')
     #italic= review.user.nickname
     

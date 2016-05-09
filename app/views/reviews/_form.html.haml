@@ -6,9 +6,8 @@
         -review.errors.full_messages.each do |msg|
           %li= msg
   .form-group
-    = f.label :content
-    = f.text_area :content, class: 'form-control'
+    = f.input :content, class: 'form-control'
   .form-group#reviewrating
     = f.input :rating, collection: 1..5, class: 'form-control'
 
-  = f.submit 'Save', class: 'btn btn-default'
+  = f.submit t('shared.save'), class: 'btn btn-default'

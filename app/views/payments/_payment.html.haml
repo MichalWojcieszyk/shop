@@ -1,17 +1,17 @@
 .panel.panel-default  
   .panel-body#usercontent
-    %b Product:
+    %b= t('payment.product.columns.title')
     #italic= markdown(payment.product.title)
     %br
-    %b Payment quantity:
+    %b= t('payment.columns.quantity')
     #italic= payment.quantity
     %br
-    %b Payment amount:
+    %b= t('payment.columns.amount')
     #italic= payment.amount
     %br
-    %b Payment created:
-    #italic= payment.created_at.strftime('%d-%m-%Y')
+    %b= t('payment.columns.created_at')
+    #italic= payment.created_at.strftime('%d-%m-%Y %H:%M:%S')
     %br
-    %b Bought by:
+    %b= t('payment.user.columns.nickname')
     #italic= payment.user.nickname
     

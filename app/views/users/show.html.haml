@@ -1,4 +1,4 @@
--#= binding.pry
+- breadcrumb :user
 %h1 Your profile
 
 .panel.panel-default
@@ -60,7 +60,7 @@
       %th#threviews Time:
     - current_user.products.reverse_order.last(15).each do |product|
       %tr
-        %td= product.title#, category_product_path(product.category, product)
+        %td= product.title
         %td= product.price
         %td= product.on_stock
         %td= product.created_at.strftime('%d-%m-%Y %H:%M:%S')
@@ -80,7 +80,7 @@
       %th#threviews Time:
     - current_user.payments.reverse_order.last(5).each do |payment|
       %tr
-        %td= link_to payment.product.title, category_product_path(product.category, payment.product)
+        %td= payment.product.title#, category_product_path(product.category, payment.product)
         %td= payment.product.price
         %td= payment.quantity
         %td= payment.amount

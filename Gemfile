@@ -26,6 +26,7 @@ gem 'pry'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rubocop', require: false
+gem 'gretel'
 
 group :development do
   gem 'spring'

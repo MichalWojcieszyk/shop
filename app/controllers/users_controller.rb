@@ -8,8 +8,16 @@ class UsersController < ApplicationController
   expose(:product)
   expose(:deposit)
   expose(:deposits)
-  
+
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text 'Imie: ' + "#{user.firstname}" + ' Nazwisko: ' + "#{user.lastname}" + ' Email: ' +  "#{user.email}"
+        send_data pdf.render, filename: "#{user.email}.pdf", type: 'application/pdf'
+      end
+    end
   end
 
   def edit

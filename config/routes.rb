@@ -28,6 +28,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :deposits, only: [:new, :create]
   
-
   root 'categories#index'
 end

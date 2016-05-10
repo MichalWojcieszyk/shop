@@ -171,9 +171,13 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.0.7)
       ast (~> 2.2)
+    pdf-core (0.6.1)
     pg (0.18.4)
     pg (0.18.4-x86-mingw32)
     powerpack (0.1.1)
+    prawn (2.1.0)
+      pdf-core (~> 0.6.1)
+      ttfunk (~> 1.4.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -276,6 +280,7 @@ GEM
     tilt (2.0.2)
     trix (0.9.5)
       rails
+    ttfunk (1.4.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     tzinfo-data (1.2016.4)
@@ -319,6 +324,7 @@ DEPENDENCIES
   letter_opener
   mini_magick
   pg
+  prawn
   pry
   quiet_assets
   rails (= 4.2.0)
